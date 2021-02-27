@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Homepage from "./pages/homepage/home.page";
+import { Switch, Route } from 'react-router-dom';
+import AuthenticationPage from "./pages/authentication/authentication.page";
+import Header from "./components/layouts/header/header.component";
+import Footer from "./components/layouts/footer/footer.component";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+          {/*=========================== PAGE HEADER ===========================*/}
+          <Header />
+          {/*=========================== END OF PAGE HEADER ====================*/}
+
+          <Switch>
+              <Route exact={true} path='/' component={Homepage} />
+              <Route exact={true} path='/auth' component={AuthenticationPage} />
+          </Switch>
+
+          {/*=========================== PAGE FOOTER ===========================*/}
+          <Footer />
+          {/*=========================== END OF PAGE HEADER ====================*/}
+      </div>
   );
 }
 
